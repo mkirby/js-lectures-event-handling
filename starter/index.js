@@ -1,5 +1,41 @@
+// 1. What element do we want to listen for events on?
+const toggleSwitch = document.querySelector("#toggle-dark-mode")
+// console.log(toggleSwitch)
+// 2. What kind of event are we listening for?
+toggleSwitch.addEventListener("click", function() {
+  // 3. what do we want to happen?
+  document.body.classList.toggle("dark-mode")
+  // console.log("clicked")
+})
 
+const animalForm = document.querySelector("#animal-form")
+animalForm.addEventListener("submit", function(event) {
+  //always add this for form submits
+  event.preventDefault()
 
+  // step 1
+  //get info from info fields
+  //const imageUrl = event.target.querySelector("[name='image_url']").value
+  const name = event.target.name.value
+  const imageUrl = event.target.image_url.value
+  const description = event.target.description.value
+  console.log(name)
+  console.log(imageUrl)
+  console.log(description)
+
+  const animalObj = {
+    name: name, 
+    imageUrl: imageUrl,
+    description: description,
+    donations: 0
+  }
+  // step 2: slap it on the DOM
+
+  //opt step 3: clear input fields
+  renderOneAnimal(animalObj)
+  event.target.reset()
+  // console.log("form submitted")
+})
 
 
 
